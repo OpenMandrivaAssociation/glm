@@ -2,14 +2,16 @@
 %global debug_package %{nil}
 
 Name:           glm
-Version:        0.9.4.2
+Version:        0.9.4.4
 Release:        1
 Summary:        C++ mathematics library for graphics programming
 Group:          Development/C
 License:        MIT
 URL:            http://glm.g-truc.net/
-Source0:        http://downloads.sourceforge.net/ogl-math/%{name}-%{version}/%{name}-%{version}.zip
+Source0:        http://downloads.sourceforge.net/ogl-math/%{name}-%{version}/%{name}-%{version}.7z
 BuildRequires:  cmake
+# For unpacking the source
+BuildRequires:	p7zip
 
 %description
 GLM is a C++ library for doing mathematics operations
