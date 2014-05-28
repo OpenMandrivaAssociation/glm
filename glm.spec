@@ -2,7 +2,7 @@
 %global debug_package %{nil}
 
 Name:           glm
-Version:        0.9.4.4
+Version:        0.9.5.3
 Release:        1
 Summary:        C++ mathematics library for graphics programming
 Group:          Development/C
@@ -50,7 +50,7 @@ a programming manual for the %{name}-devel package.
 #
 # When updating this package, take care to check if -c is
 # needed for the particular version.
-%setup -q
+%setup -q -n glm
 
 # A couple of files had CRLF line-ends in them.
 sed -i 's/\r//' copying.txt
