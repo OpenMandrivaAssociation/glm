@@ -3,7 +3,7 @@
 
 Name:           glm
 Version:        0.9.5.3
-Release:        1
+Release:        2
 Summary:        C++ mathematics library for graphics programming
 Group:          Development/C
 License:        MIT
