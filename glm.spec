@@ -75,6 +75,7 @@ find %{buildroot} -name CMakeLists.txt -exec rm -f {} ';'
 %files devel
 %doc copying.txt readme.txt
 %{_includedir}/%{name}
+%{_libdir}/cmake/FindGLM.cmake
 
 %files doc
 %doc doc/%{name}.pdf
