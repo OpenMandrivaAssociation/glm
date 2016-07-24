@@ -2,16 +2,14 @@
 %global debug_package %{nil}
 
 Name:           glm
-Version:        0.9.6.3
-Release:        6
+Version:        0.9.7.6
+Release:        1
 Summary:        C++ mathematics library for graphics programming
 Group:          Development/C
 License:        MIT
-URL:            http://glm.g-truc.net/
-Source0:        http://downloads.sourceforge.net/ogl-math/%{name}-%{version}/%{name}-%{version}.7z
+URL:            https://github.com/g-truc/glm
+Source0:	https://github.com/g-truc/glm/releases/download/0.9.7.6/%{name}-%{version}.zip
 BuildRequires:  cmake
-# For unpacking the source
-BuildRequires:	p7zip
 
 %description
 GLM is a C++ library for doing mathematics operations
@@ -52,23 +50,14 @@ a programming manual for the %{name}-devel package.
 # needed for the particular version.
 %setup -q -n glm
 
-# A couple of files had CRLF line-ends in them.
-sed -i 's/\r//' copying.txt
-sed -i 's/\r//' readme.txt
-
 %build
 %{cmake} -DGLM_TEST_ENABLE=ON ..
 %make
 
 %check
-cd build
-
-#ctest --output-on-failure
 
 %install
-cd build
-
-%makeinstall_std
+%makeinstall_std -C build
 find %{buildroot} -name '*.la' -exec rm -f {} ';'
 find %{buildroot} -name CMakeLists.txt -exec rm -f {} ';'
 
