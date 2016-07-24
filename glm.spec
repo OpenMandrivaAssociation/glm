@@ -51,7 +51,7 @@ a programming manual for the %{name}-devel package.
 %setup -q -n glm
 
 %build
-%{cmake} -DGLM_TEST_ENABLE=ON ..
+%cmake
 %make
 
 %check
@@ -62,11 +62,11 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 find %{buildroot} -name CMakeLists.txt -exec rm -f {} ';'
 
 %files devel
-%doc copying.txt readme.txt
 %{_includedir}/%{name}
-%{_libdir}/cmake/FindGLM.cmake
+%{_libdir}/cmake/%{name}/*.cmake
+%{_libdir}/pkgconfig/%{name}.pc
 
 %files doc
+%doc copying.txt
 %doc doc/%{name}.pdf
 %doc doc/api/
-
