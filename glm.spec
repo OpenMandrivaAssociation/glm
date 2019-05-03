@@ -48,7 +48,7 @@ a programming manual for the %{name}-devel package.
 #
 # When updating this package, take care to check if -c is
 # needed for the particular version.
-%setup -q -n
+%setup -q
 
 %build
 %cmake
