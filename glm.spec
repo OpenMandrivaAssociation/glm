@@ -52,12 +52,12 @@ a programming manual for the %{name}-devel package.
 
 %build
 %cmake
-%make
+%make_build
 
 %check
 
 %install
-%makeinstall_std -C build
+%make_install -C build
 find %{buildroot} -name '*.la' -exec rm -f {} ';'
 find %{buildroot} -name CMakeLists.txt -exec rm -f {} ';'
 
