@@ -8,7 +8,7 @@ Summary:        C++ mathematics library for graphics programming
 Group:          Development/C
 License:        MIT
 URL:            https://github.com/g-truc/glm
-Source0:	https://github.com/g-truc/glm/releases/download/0.9.7.6/%{name}-%{version}.zip
+Source0:	https://github.com/g-truc/glm/releases/download/0.9.7.6/%{name}-%{version}.tar.gz
 BuildRequires:  cmake
 
 %description
