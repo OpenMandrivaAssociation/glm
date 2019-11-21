@@ -2,7 +2,7 @@
 %global debug_package %{nil}
 
 Name:           glm
-Version:        0.9.9.6
+Version:        0.9.9.5
 Release:        1
 Summary:        C++ mathematics library for graphics programming
 Group:          Development/C
