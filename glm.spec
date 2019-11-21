@@ -2,7 +2,7 @@
 %global debug_package %{nil}
 
 Name:           glm
-Version:        0.9.9.5
+Version:        0.9.9.6
 Release:        1
 Summary:        C++ mathematics library for graphics programming
 Group:          Development/C
@@ -67,6 +67,6 @@ find %{buildroot} -name CMakeLists.txt -exec rm -f {} ';'
 %{_libdir}/pkgconfig/%{name}.pc
 
 %files doc
-%doc copying.txt
-%doc doc/%{name}.pdf
+#doc copying.txt
+#doc doc/%{name}.pdf
 %doc doc/api/
