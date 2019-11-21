@@ -2,13 +2,13 @@
 %global debug_package %{nil}
 
 Name:           glm
-Version:        0.9.7.6
-Release:        2
+Version:        0.9.9.5
+Release:        1
 Summary:        C++ mathematics library for graphics programming
 Group:          Development/C
 License:        MIT
 URL:            https://github.com/g-truc/glm
-Source0:	https://github.com/g-truc/glm/releases/download/0.9.7.6/%{name}-%{version}.zip
+Source0:	https://github.com/g-truc/glm/releases/download/0.9.7.6/%{name}-%{version}.tar.gz
 BuildRequires:  cmake
 
 %description
@@ -48,16 +48,16 @@ a programming manual for the %{name}-devel package.
 #
 # When updating this package, take care to check if -c is
 # needed for the particular version.
-%setup -q -n glm
+%setup -q
 
 %build
 %cmake
-%make
+%make_build
 
 %check
 
 %install
-%makeinstall_std -C build
+%make_install -C build
 find %{buildroot} -name '*.la' -exec rm -f {} ';'
 find %{buildroot} -name CMakeLists.txt -exec rm -f {} ';'
 
@@ -67,6 +67,6 @@ find %{buildroot} -name CMakeLists.txt -exec rm -f {} ';'
 %{_libdir}/pkgconfig/%{name}.pc
 
 %files doc
-%doc copying.txt
-%doc doc/%{name}.pdf
+#doc copying.txt
+#doc doc/%{name}.pdf
 %doc doc/api/
