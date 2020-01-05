@@ -2,13 +2,13 @@
 %global debug_package %{nil}
 
 Name:           glm
-Version:        0.9.9.5
+Version:        0.9.9.7
 Release:        1
 Summary:        C++ mathematics library for graphics programming
 Group:          Development/C
 License:        MIT
 URL:            https://github.com/g-truc/glm
-Source0:	https://github.com/g-truc/glm/releases/download/0.9.7.6/%{name}-%{version}.tar.gz
+Source0:	https://github.com/g-truc/glm/releases/download/%{version}/%{name}-%{version}.tar.gz
 BuildRequires:  cmake
 
 %description
