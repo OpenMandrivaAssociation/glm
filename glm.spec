@@ -59,7 +59,8 @@ export CXX=g++
 %check
 
 %install
-%make_install -C build
+#make_install -C build
+%cmake_install
 find %{buildroot} -name '*.la' -exec rm -f {} ';'
 find %{buildroot} -name CMakeLists.txt -exec rm -f {} ';'
 
