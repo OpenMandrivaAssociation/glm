@@ -51,6 +51,8 @@ a programming manual for the %{name}-devel package.
 %setup -q
 
 %build
+export CC=gcc
+export CXX=g++
 %cmake
 %make_build
 
