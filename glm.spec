@@ -65,10 +65,13 @@ export CXX=g++
 
 
 %install
-%make_install -C build
+rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_includedir}
 
-find %{buildroot} -name '*.la' -exec rm -f {} ';'
-find %{buildroot} -name CMakeLists.txt -exec rm -f {} ';'
+cp -a glm $RPM_BUILD_ROOT%{_includedir}
+ 
+%clean
+rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %{_includedir}/%{name}
