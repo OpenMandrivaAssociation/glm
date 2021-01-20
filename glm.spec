@@ -75,8 +75,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %{_includedir}/%{name}
-%{_libdir}/cmake/%{name}/*.cmake
-%{_libdir}/pkgconfig/%{name}.pc
+#{_libdir}/cmake/%{name}/*.cmake
+#{_libdir}/pkgconfig/%{name}.pc
 
 %files doc
 #doc copying.txt
