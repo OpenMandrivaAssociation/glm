@@ -72,8 +72,21 @@ install -d $RPM_BUILD_ROOT%{_includedir}
 
 cp -a glm $RPM_BUILD_ROOT%{_includedir}
 
-mkdir -p $RPM_BUILD_ROOT/usr/lib/pkgconfig/
-cp glm.pc $RPM_BUILD_ROOT/usr/lib/pkgconfig/
+#mkdir -p $RPM_BUILD_ROOT/usr/lib/pkgconfig/
+#cp glm.pc $RPM_BUILD_ROOT/usr/lib/pkgconfig/
+
+
+# Dirty hack to provide .pc file. Needed bc of upstream stupidity.
+mkdir -p %{buildroot}%{_libdir}/pkgconfig/
+cat << EOF > %{buildroot}%{_libdir}/pkgconfig/%{name}.pc
+prefix=/usr
+includedir=${prefix}/include
+
+Name: GLM
+Description: OpenGL Mathematics
+Version: 0.9.9.8
+Cflags: -I${includedir}
+EOF
  
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -81,7 +94,7 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %{_includedir}/%{name}
 #{_libdir}/cmake/%{name}/*.cmake
-#{_libdir}/pkgconfig/%{name}.pc
+%{_libdir}/pkgconfig/%{name}.pc
 
 %files doc
 #doc copying.txt
