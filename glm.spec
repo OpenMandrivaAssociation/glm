@@ -71,6 +71,9 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_includedir}
 
 cp -a glm $RPM_BUILD_ROOT%{_includedir}
+
+mkdir -p $RPM_BUILD_ROOT/usr/lib/pkgconfig/
+cp %{source1}/glm.pc $RPM_BUILD_ROOT/usr/lib/pkgconfig/
  
 %clean
 rm -rf $RPM_BUILD_ROOT
