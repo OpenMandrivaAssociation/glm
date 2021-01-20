@@ -58,8 +58,8 @@ a programming manual for the %{name}-devel package.
 %autosetup -p1
 
 %build
-#export CC=gcc
-#export CXX=g++
+export CC=gcc
+export CXX=g++
 %cmake
 %make_build
 
