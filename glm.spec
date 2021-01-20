@@ -1,14 +1,24 @@
 # The library consists of headers only
 %global debug_package %{nil}
 
+%define _disable_ld_no_undefined 1
+%define _disable_lto 1
+
+
+# Upstream no longer provide CMAKE install target. Files should be installed manually. 
+# Also upstream cease providing .pc files so .pc file need to be re-created manually. Also at some poing worth to bring back cmake files.
+
 Name:           glm
-Version:        0.9.9.5
+Version:        0.9.9.8
 Release:        1
 Summary:        C++ mathematics library for graphics programming
 Group:          Development/C
 License:        MIT
 URL:            https://github.com/g-truc/glm
-Source0:	https://github.com/g-truc/glm/releases/download/0.9.7.6/%{name}-%{version}.tar.gz
+Source0:	https://github.com/g-truc/glm/archive/%{version}/%{name}-%{version}.tar.gz
+
+Patch0:     1038.patch
+
 BuildRequires:  cmake
 
 %description
@@ -48,25 +58,45 @@ a programming manual for the %{name}-devel package.
 #
 # When updating this package, take care to check if -c is
 # needed for the particular version.
-%setup -q
+
+%autosetup -p1
 
 %build
+export CC=gcc
+export CXX=g++
 %cmake
 %make_build
 
-%check
 
 %install
-%make_install -C build
-find %{buildroot} -name '*.la' -exec rm -f {} ';'
-find %{buildroot} -name CMakeLists.txt -exec rm -f {} ';'
+rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_includedir}
+
+cp -a glm $RPM_BUILD_ROOT%{_includedir}
+
+#mkdir -p $RPM_BUILD_ROOT/usr/lib/pkgconfig/
+#cp glm.pc $RPM_BUILD_ROOT/usr/lib/pkgconfig/
+
+
+# Dirty hack to provide .pc file. Needed bc of upstream stupidity.
+mkdir -p %{buildroot}%{_libdir}/pkgconfig/
+cat << EOF > %{buildroot}%{_libdir}/pkgconfig/%{name}.pc
+prefix=/usr
+includedir=${prefix}/include
+
+Name: GLM
+Description: OpenGL Mathematics
+Version: %{version}
+Cflags: -I${includedir}
+EOF
+ 
+%clean
+rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %{_includedir}/%{name}
-%{_libdir}/cmake/%{name}/*.cmake
+#{_libdir}/cmake/%{name}/*.cmake
 %{_libdir}/pkgconfig/%{name}.pc
 
 %files doc
-#doc copying.txt
-#doc doc/%{name}.pdf
 %doc doc/api/
