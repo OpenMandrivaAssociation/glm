@@ -4,6 +4,10 @@
 %define _disable_ld_no_undefined 1
 %define _disable_lto 1
 
+
+# Upstream no longer provide CMAKE install target. Files should be installed manually. 
+# Also upstream cease providing .pc files so .pc file need to be re-created manually. Also at some poing worth to bring back cmake files.
+
 Name:           glm
 Version:        0.9.9.8
 Release:        1
@@ -12,9 +16,7 @@ Group:          Development/C
 License:        MIT
 URL:            https://github.com/g-truc/glm
 Source0:	https://github.com/g-truc/glm/archive/%{version}/%{name}-%{version}.tar.gz
-Source1: glm.pc
 
-#Patch0:   add-cmake-install-again.patch
 Patch0:     1038.patch
 
 BuildRequires:  cmake
@@ -84,7 +86,7 @@ includedir=${prefix}/include
 
 Name: GLM
 Description: OpenGL Mathematics
-Version: 0.9.9.8
+Version: %{version}
 Cflags: -I${includedir}
 EOF
  
@@ -97,6 +99,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/pkgconfig/%{name}.pc
 
 %files doc
-#doc copying.txt
-#doc doc/%{name}.pdf
 %doc doc/api/
