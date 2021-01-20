@@ -1,6 +1,9 @@
 # The library consists of headers only
 %global debug_package %{nil}
 
+%define _disable_ld_no_undefined 1
+%define _disable_lto 1
+
 Name:           glm
 Version:        0.9.9.8
 Release:        1
