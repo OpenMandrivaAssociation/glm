@@ -10,6 +10,7 @@ License:        MIT
 URL:            https://github.com/g-truc/glm
 Source0:	https://github.com/g-truc/glm/archive/%{version}/%{name}-%{version}.tar.gz
 #Patch0:   add-cmake-install-again.patch
+Patch0:     1038.patch
 
 BuildRequires:  cmake
 
