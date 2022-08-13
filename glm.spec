@@ -10,7 +10,7 @@
 
 Name:           glm
 Version:        0.9.9.8
-Release:        1
+Release:        2
 Summary:        C++ mathematics library for graphics programming
 Group:          Development/C
 License:        MIT
@@ -80,19 +80,15 @@ cp -a glm $RPM_BUILD_ROOT%{_includedir}
 
 # Dirty hack to provide .pc file. Needed bc of upstream stupidity.
 mkdir -p %{buildroot}%{_libdir}/pkgconfig/
-cat << EOF > %{buildroot}%{_libdir}/pkgconfig/%{name}.pc
+cat << "EOF" > %{buildroot}%{_libdir}/pkgconfig/%{name}.pc
 prefix=/usr
 includedir=${prefix}/include
 
 Name: GLM
 Description: OpenGL Mathematics
 Version: %{version}
-Cflags: -I${includedir}
 EOF
  
-%clean
-rm -rf $RPM_BUILD_ROOT
-
 %files devel
 %{_includedir}/%{name}
 #{_libdir}/cmake/%{name}/*.cmake
