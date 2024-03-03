@@ -9,16 +9,14 @@
 # Also upstream cease providing .pc files so .pc file need to be re-created manually. Also at some poing worth to bring back cmake files.
 
 Name:           glm
-Version:        0.9.9.8
-Release:        3
+Version:        1.0.1
+Release:        1
 Summary:        C++ mathematics library for graphics programming
 Group:          Development/C
 License:        MIT
 URL:            https://github.com/g-truc/glm
 Source0:	https://github.com/g-truc/glm/archive/%{version}/%{name}-%{version}.tar.gz
-
-Patch0:     1038.patch
-
+Patch0:  https://src.fedoraproject.org/rpms/glm/raw/rawhide/f/glm-1.0.1-without-werror.patch
 BuildRequires:  cmake
 
 %description
