@@ -10,7 +10,7 @@
 
 Name:           glm
 Version:        1.0.1
-Release:        1
+Release:        2
 Summary:        C++ mathematics library for graphics programming
 Group:          Development/C
 License:        MIT
@@ -68,6 +68,7 @@ export CXX=g++
 
 %install
 rm -rf $RPM_BUILD_ROOT
+%make_install -C build
 install -d $RPM_BUILD_ROOT%{_includedir}
 
 cp -a glm $RPM_BUILD_ROOT%{_includedir}
