@@ -91,7 +91,9 @@ EOF
 %files devel
 %{_includedir}/%{name}
 #{_libdir}/cmake/%{name}/*.cmake
+%{_libdir}/libglm.so
 %{_libdir}/pkgconfig/%{name}.pc
+%{_datadir}/glm/
 
 %files doc
 %doc doc/api/
