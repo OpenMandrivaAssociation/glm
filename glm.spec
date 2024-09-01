@@ -10,7 +10,7 @@
 
 Name:           glm
 Version:        1.0.1
-Release:        2
+Release:        3
 Summary:        C++ mathematics library for graphics programming
 Group:          Development/C
 License:        MIT
@@ -62,7 +62,7 @@ a programming manual for the %{name}-devel package.
 %build
 export CC=gcc
 export CXX=g++
-%cmake
+%cmake -DCMAKE_INSTALL_DATAROOTDIR=%{_datadir}/cmake
 %make_build
 
 
@@ -93,7 +93,7 @@ EOF
 #{_libdir}/cmake/%{name}/*.cmake
 %{_libdir}/libglm.so
 %{_libdir}/pkgconfig/%{name}.pc
-%{_datadir}/glm/
+%{_datadir}/cmake/glm/
 
 %files doc
 %doc doc/api/
