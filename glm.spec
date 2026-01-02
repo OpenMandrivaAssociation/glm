@@ -18,6 +18,7 @@ URL:            https://github.com/g-truc/glm
 Source0:	https://github.com/g-truc/glm/archive/%{version}/%{name}-%{version}.tar.gz
 Patch0:  https://src.fedoraproject.org/rpms/glm/raw/rawhide/f/glm-1.0.1-without-werror.patch
 BuildRequires:  cmake
+BuildRequires:  make
 
 %description
 GLM is a C++ library for doing mathematics operations
