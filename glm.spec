@@ -9,7 +9,7 @@
 # Also upstream cease providing .pc files so .pc file need to be re-created manually. Also at some poing worth to bring back cmake files.
 
 Name:           glm
-Version:        1.0.2
+Version:        1.0.3
 Release:        1
 Summary:        C++ mathematics library for graphics programming
 Group:          Development/C
